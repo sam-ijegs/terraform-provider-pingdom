@@ -12,3 +12,6 @@ vendor/*
 /.vscode
 
 __debug_bin
+terraform-provider-*_*.zip
+terraform-provider-*_SHA256SUMS*
+build.sh
