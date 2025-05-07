@@ -27,11 +27,19 @@ terraform {
 variable "pingdom_api_token" {}
 variable "solarwinds_user" {}
 variable "solarwinds_passwd" {}
+variable "pingdom_api_token_only" {}
 
 provider "pingdom" {
   api_token         = var.pingdom_api_token
   solarwinds_user   = var.solarwinds_user
   solarwinds_passwd = var.solarwinds_passwd
+}
+
+alternatively we can now authenticate using just the api token
+generated from the pingdom account using the provider like this
+
+provider "pingdom" {
+  api_token_only    = var.pingdom_api_token_only or var.pingdom_api_token
 }
 
 resource "pingdom_check" "example" {
@@ -65,6 +73,9 @@ The following arguments are supported in the `provider` block:
 
 * `api_token` - (Optional) API Token to use to authenticate. You can
 also set this via the environment variable: `PINGDOM_API_TOKEN`
+
+* `api_token_only` - (Optional) API Token to use to authenticate. You can
+also set this via the environment variable: `PINGDOM_API_TOKEN_ONLY`
 
 * `solarwinds_user` - (Optional) Solarwinds user. You can
 also set this via the environment variable: `SOLARWINDS_USER`

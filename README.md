@@ -37,15 +37,15 @@ provider "pingdom" {
 }
 
 provider "pingdom" {
-    api_key           = "${var.pingdom_api_token_only}" 
+    api_token_only    = "${var.pingdom_api_token_only}" 
 }
 ```
 The provider supports two authentication methods:
 
-API Token - Traditional token-based authentication via Pingdom
-API Key - Bearer token authentication for Pingdom API 3.1
+API Token      - Traditional token-based authentication via Pingdom
+API Token Only - Bearer token authentication for Pingdom API 3.1
 
-You can use either method or both (API Key will take precedence if both are provided).
+You can use either method or both (API TOKEN will now take precedence if both are provided).
 Alternatively, you can use environment variables to avoid sensitive values in your code:
 
 ```sh
