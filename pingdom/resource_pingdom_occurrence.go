@@ -3,8 +3,8 @@ package pingdom
 import (
 	"context"
 	"fmt"
-	"github.com/mbarper/go-pingdom/pingdom"
-	"github.com/mbarper/go-pingdom/solarwinds"
+	"github.com/sam-ijegs/go-pingdom/pingdom"
+	"github.com/sam-ijegs/go-pingdom/solarwinds"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/diag"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 	"log"

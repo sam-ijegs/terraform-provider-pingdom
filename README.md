@@ -26,6 +26,7 @@ terraform {
 }
 
 variable "pingdom_api_token" {}
+variable "pingdom_api_token_only" {}
 variable "solarwinds_user" {}
 variable "solarwinds_passwd" {}
 
@@ -34,13 +35,23 @@ provider "pingdom" {
     solarwinds_user   = "${var.solarwinds_user}"
     solarwinds_passwd = "${var.solarwinds_passwd}"
 }
-```
 
+provider "pingdom" {
+    api_key           = "${var.pingdom_api_token_only}" 
+}
+```
+The provider supports two authentication methods:
+
+API Token - Traditional token-based authentication via Pingdom
+API Key - Bearer token authentication for Pingdom API 3.1
+
+You can use either method or both (API Key will take precedence if both are provided).
 Alternatively, you can use environment variables to avoid sensitive values in your code:
 
 ```sh
 export PINGDOM_API_TOKEN=YOUR_API_TOKEN
 export SOLARWINDS_PASSWD=YOUR_SOLARWINDS_PASSWD
+export PINGDOM_API_TOKEN_ONLY=YOUR_API_TOKEN
 ```
 
 You don't need to declare those values in your code:
@@ -105,7 +116,12 @@ Apply with:
  terraform apply \
     -var 'pingdom_api_token=YOUR_API_TOKEN'
     -var 'solarwinds_user=YOUR_SOLARWINDS_USER'
-    -var 'solarwinds_passwd=YOUR_SOLARWINDS_PASSWD'
+    -var 'solarwinds_passwd=YOUR_SOLARWINDS_PASSWD'\
+```
+
+```sh
+ terraform apply \
+    -var 'pingdom_api_token_only=YOUR_API_TOKEN' \
 ```
 
 **Using attributes from other resources**
@@ -118,6 +134,8 @@ variable "pingdom_api_token" {}
 variable "solarwinds_user" {}
 variable "solarwinds_passwd" {}
 
+variable "pingdom_api_token_only" {}
+
 
 
 provider "heroku" {
@@ -129,6 +147,10 @@ provider "pingdom" {
   api_token         = var.pingdom_api_token
   solarwinds_user   = var.solarwinds_user
   solarwinds_passwd = var.solarwinds_passwd
+}
+
+provider "pingdom" {
+  api_key           = var.pingdom_api_token_only
 }
 
 resource "heroku_app" "example" {

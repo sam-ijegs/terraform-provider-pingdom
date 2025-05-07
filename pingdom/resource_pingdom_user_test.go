@@ -6,7 +6,7 @@ package pingdom
 // 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/acctest"
 // 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/resource"
 // 	"github.com/hashicorp/terraform-plugin-sdk/v2/terraform"
-// 	"github.com/mbarper/go-pingdom/solarwinds"
+// 	"github.com/sam-ijegs/go-pingdom/solarwinds"
 // 	"html/template"
 // 	"testing"
 // )
