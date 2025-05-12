@@ -5,7 +5,7 @@ go 1.19
 require (
 	github.com/hashicorp/terraform-plugin-sdk/v2 v2.24.1
 	github.com/mitchellh/mapstructure v1.5.0
-	github.com/sam-ijegs/go-pingdom v1.4.4
+	github.com/sam-ijegs/go-pingdom v1.4.5
 )
 
 require (
